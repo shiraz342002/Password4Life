@@ -1,0 +1,7 @@
+<div class="bottombtns">
+      <h3 class="bottombtns_h3">Breaches happen every day. Protect <br> yourself with Password4Life.</h3>
+      <div class="btmbtn">Try Premium Now</div>
+      <div class="btmbtn">Try Business Now</div>
+      <p>Free 30-day Password4Life Premium trial and 14-day Business trial. No credit card required.
+      </p>
+    </div>

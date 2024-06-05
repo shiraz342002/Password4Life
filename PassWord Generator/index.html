@@ -1,0 +1,350 @@
+<!-- #***********************************************************************************
+#***                                                                                  ***
+#***  Date: 28/5/2024  Time: 11:56 Pm     Author:  Shiraz Mazhar                      ***
+#***                                                                                  ***
+#***  Working On: Password Generator                                                  ***
+#***                                                                                  ***
+#**************************************************************************************** -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password4Life</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body onload="initial_pass()">
+    <header>
+      <div class="left-section">
+        <img src="/Beyond the Bails_2.jpg" alt="logo" id="logo" />
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a target="_blank" href="####">Why Password4Life</a>
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </li>
+            <li>
+              <a target="_blank" href="####">Pricing</a>
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </li>
+            <li>
+              <a target="_blank" href="####">Personal</a>
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </li>
+            <li>
+              <a target="_blank" href="####">Business</a>
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </li>
+            <li>
+              <a target="_blank" href="####">Partners</a>
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </li>
+            <li>
+              <a target="_blank" href="####">Support</a>
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="right-section">
+        <button id="login">Login</button>
+        <button id="signup">Signup</button>
+        <button class="free">Get Password4Life Free</button>
+      </div>
+    </header>
+    <div class="grid">
+      <div class="lefttxt">
+        <h3 style="color: #d22">PASSWORD GENERATOR TOOL</h3>
+        <h1>
+          Need a Unique, Secure <br />
+          Password?
+        </h1>
+        <p>
+          Generate, save, and autofill credentials across all your <br />
+          devices with Password4Life.
+        </p>
+        <button id="trial" class="free">Start Free Password4Life Trial</button>
+        <span>Use Password Generator</span>
+      </div>
+      <div class="rightvid">
+        <img
+          src="https://www.lastpass.com/-/media/4cf440af0909454db3e6c67c4eff966c.svg?la=en&hash=9E8AF8D89D5C1090E396564158BCA429"
+          alt=""
+        />
+      </div>
+    </div>
+    <section>
+      <h2>
+        Instantly generate a secure, random <br />
+        password with the Password4Life online tool
+      </h2>
+      <h4>
+        Go beyond online generators with
+        <a id="p4life" href="/products/premium-password-manager"
+          >Password4Life Premium</a
+        >. No matter what device <br />
+        or app you're using, all your passwords are automatically generated,
+        saved, and <br />
+        synced - wherever you go.
+      </h4>
+      <form id="gen_pass">
+        <div class="input-wrapper">
+          <input type="text" class="genatared_pass" id="pw_display"/>
+          <button onclick="CopyPw()" type="button" id="copyBtn">
+            <span class="material-symbols-outlined">content_copy</span>
+          </button>
+          <button
+            type="button"
+            id="regenerateBtn"
+            class="material-symbols-outlined"
+            onclick="regenPassword()"
+          >
+            <img
+              src="https://www.lastpass.com/assets/images/cdn/icon-generate-new.svg"
+              alt="Regenerate Icon"
+            />
+          </button>
+        </div>
+      </form>
+      <div class="customize">
+        <h3>Customize Your Password</h3>
+        <h6>Password length</h6>
+        <div class="cproperties">
+          <div class="custom_slider">
+            <input
+              class="input-length"value="8" name="length" type="text" min="1" max="100" id="pass_len" readonly />
+            <div class="custom-slider-container">
+              <label for="password-length"></label>
+              <input
+                type="range"
+                id="password-length"
+                name="length"
+                min="1"
+                max="100"
+                value="8"
+                oninput="updateInputValue(this.value)"
+              />
+            </div>
+          </div>
+          <div class="easy">
+            <label>
+              <input type="radio" name="level" value="easy" checked />
+              <span>Easy to Say</span>
+            </label>
+            <label>
+              &nbsp;&nbsp;&nbsp;<input
+                type="radio"
+                name="level"
+                value="medium"
+              
+              />
+              <span>Easy to Read</span>
+            </label>
+            <label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                type="radio"
+                name="level"
+                value="hard"
+               
+              />
+              <span>All Characters</span>
+            </label>
+          </div>
+          <div class="checkboxes">
+            <label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="ucase" />
+              <span id="upper">Uppercase</span>
+            </label>
+            <label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="lcase" />
+              <span id="lower">Lowercase</span>
+            </label>
+            <label>
+              &nbsp;&nbsp;<input type="checkbox" id="number" />
+              <span id="num">Numbers</span>
+            </label> 
+            <label>
+              &nbsp;<input type="checkbox" id="symbol" />
+              <span id="sym">Symbols</span>
+            </label>
+          </div>
+          
+        </div>
+        <button class="free copy_button">Copy Password</button>
+      </div>
+    </section>
+    <div class="grid">
+      <div class="lefttxt">
+        <img
+          class="video2"
+          src="https://www.lastpass.com/-/media/9cfe8990af0f4092857563102e04d711.svg?la=en&hash=316EE703D7703E32246EB81877E68D68"
+          alt=""
+        />
+      </div>
+      <div class="rightvid">
+        <h3 style="color: #d22">MORE THAN A PASSWORD GENERATOR</h3>
+        <h1>
+          Your passwords, from any <br />
+          device
+        </h1>
+        <p class="secondtext">
+          With Password4Life Premium and Families, you can manage and access your
+          <br />
+          saved logins straight from your vault, whether you’re on your home
+          <br />
+          computer, cell phone while at a cafe, or the train while headed into
+          <br />
+          the office.
+        </p>
+        <a id="grid2a" href=""
+          >Learn more about Password4Life for personal Use</a
+        >
+      </div>
+    </div>
+    <div class="grid grid3">
+      <div class="lefttxt">
+        <h3 style="color: #d22">TAKE YOUR DATA WITH YOU</h3>
+        <h1>
+          Let Password4Life handle form <br />
+          fields for you
+        </h1>
+        <p class="secondtext">
+          Leave password memorization in the past. Bring form autofill to the
+          <br />
+          next leve Password4Life Premium plans. <br />
+           Password4Life will save and autofill all your credentials for you:
+          passwords, <br />
+          usernames, shipping info, credit cards, and more.
+        </p>
+        <a id="grid2a" href="">Enable Save and Autofill for Free</a>
+      </div>
+      <div class="rightvid">
+        <img
+          class="video2"
+          id="thirdvid"
+          src="https://www.lastpass.com/-/media/6eea31de8ae74148a89d0eb433e246c5.svg?la=en&hash=EBC1A2010B8F3BEC78114E4377261C5F"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="section5">
+      <h2 class="section5_heading">Take your security to the next level</h2>
+      <div class="boxes">
+        <div class="box">
+          <img
+            src="https://www.lastpass.com/-/media/557809f7a2264010b89d02e56180b286.svg?la=en&hash=A7AD06C84752ABCA216DA5D6E2DD6087"alt=""
+          />
+          <h3 class="boxes_h3">Zero-knowledge security</h3>
+
+          <p class="boxes_p">Your data is kept secret, even from us. Only you can unlock your encrypted vault with your master password.</p>
+          <a class="boxes_a" href="">Learn About Security ></a>
+
+        </div>
+        <div class="box">
+          <img
+            src="https://www.lastpass.com/-/media/7860ead9a3614a149731f06430874299.svg?la=en&hash=D4CC04DCEF2CAE01CA4490638370E961"alt=""/>
+          
+          <h3 class="boxes_h3">Be aware of digital threats</h3>
+          <p class="boxes_p">Password4Life data breach monitoring immediately notifies you if your data has been compromised online.
+
+          </p>
+          <a class="boxes_a" href="">Data Breach Scanning ></a>
+        </div>
+        <div class="box">
+          <img
+            src="https://www.lastpass.com/-/media/7e0b597d60db40fa892e851391915612.svg?la=en&hash=174C902E272A77D027B16A5438244C37"alt="" />
+         
+          <h3 class="boxes_h3">Nurture your habits</h3>
+
+          <p class="boxes_p">Find and update weak, reused passwords with ones created by our built-in password generator, all from one dashboard.</p>
+          <a class="boxes_a" href="">Security Dashboard ></a>
+
+        </div>
+        <div class="box">
+          <img
+            src="https://www.lastpass.com/-/media/5a8abbccb7de4ccc85523b65ea5a844c.svg?la=en&hash=0726BCD751F8C68F459D9E6C0DF136B8"alt=""/>
+
+          <h3 class="boxes_h3">Multifactor authentication</h3>
+          <p class="boxes_p">Enable additional authentication, like a one-time passcode or fingerprint scan, to protect your account against hackers.
+
+          </p>
+          <a class="boxes_a" href="">Multifactor Options ></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="grid grid3 grid4">
+      <div class="lefttxt">
+        <h3 style="color: #d22">BUSINESS PASSWORD MANAGEMENT
+        </h3>
+        <h1>
+          Simply improve employee <br> password habits
+
+        </h1>
+        <p class="secondtext">
+          ay goodbye to employee password reuse. Password4Life makes it easy to <br> generate complex passwords for every account, whether work or <br> personal, and even easier to log in while on the go.
+        </p>
+        <a class="grids_a_tags learnmore" href="">Learn about Password4Life for Business ></a>
+      </div>
+      <div class="rightvid">
+        <img
+          class="video2 video3"
+          id="thirdvid"
+          src="https://www.lastpass.com/-/media/f84a1085ac2a4cd5a38a2d88806224af.svg?la=en&hash=8B30BB369F3B66ABFA8E4D2B93ECE765"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="section6">
+      <h2 class="section5_heading sec6">Dive deep into password best practices
+      </h2> 
+      <div class="squares">
+        <div class="square">
+          <span class="section_6_span">FAQ</span>
+          <h3 class="section_6_h3">How Does the Random Password Generator Work?</h3>
+          <p class="section_6_p">What defines a strong password, and how does <br> the Password4Life password generator create unique, <br> random passwords every time?</p>
+            <a class="learnmore" href="">Learn More</a>
+        </div>
+        <div class="square">
+          <span class="section_6_span">LEARNING</span>
+          <h3 class="section_6_h3">Tips for Creating Strong Passwords
+          </h3>
+          <p class="section_6_p">Learn how to create passwords which protect <br> your accounts – and how the Password4Life password <br> generator does it best. </p>
+          <a class="learnmore" href="">Learn More</a>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <footer>
+      <ul class="footer-links">
+        <li><a href="#">English</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Imprint</a></li>
+        <li><a href="#">Cookie Preferences</a></li>
+        <li><a href="#">Your Privacy Choices</a></li>
+      </ul>
+      <p>© 2024 Password4Life US LP. All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
